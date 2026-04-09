@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Cleaning Services</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+<div class="container">
+<h1>Diamond Cleaning Services & Hiring equipments</h1>
+
+<nav id="navMenu">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</div>
+</header>
+
+<section id="home" class="hero">
+<h2>Professional Cleaning Services</h2>
+<p>Commercial • Industrial • Residential</p>
+<button onclick="scrollToSection('contact')">Get Quote</button>
+</section>
+
+<section id="about" class="about">
+<h2>About Us</h2>
+<p>
+We provide professional cleaning services for offices, homes,
+industrial buildings and commercial spaces. Our experienced
+team uses modern equipment and eco-friendly cleaning products.
+</p>
+</section>
+
+<section id="services" class="services">
+
+<h2>Our Services</h2>
+
+<div class="service-grid">
+
+<div class="card" onclick="openService('office')">
+<h3>Office Cleaning</h3>
+<p>Complete workspace cleaning and sanitation.</p>
+</div>
+
+<div class="card" onclick="openService('carpet')">
+<h3>Carpet Cleaning</h3>
+<p>Deep carpet shampoo and stain removal.</p>
+</div>
+
+<div class="card" onclick="openService('window')">
+<h3>Window Cleaning</h3>
+<p>Professional interior and exterior window cleaning.</p>
+</div>
+
+
+
+<div class="card" onclick="openService('industrial')">
+<h3>Industrial Cleaning</h3>
+<p>Warehouse and factory cleaning solutions.</p>
+</div>
+
+<div class="card" onclick="openService('hiring')">
+<h3>Hiring equipments</h3>
+<p>Cleaning equipments for hire.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>Contact Us</h2>
+
+<form id="contactForm">
+
+<input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Email Address">
+<textarea id="message" placeholder="Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+<p id="formMessage"></p>
+
+</section>
+
+<button onclick="topFunction()" id="topBtn">↑</button>
+
+<footer>
+<p>© 2026 Diamond Cleaning Services</p>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- Service Modal -->
+
+<div id="serviceModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeService()">&times;</span>
+
+<img id="modalImage" class="modal-image">
+
+<h2 id="modalTitle"></h2>
+
+<ul id="modalList"></ul>
+
+</div>
+
+</div>
+
+</body>
+</html>
