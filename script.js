@@ -19,7 +19,7 @@ behavior:"smooth"
 // Contact form validation
 document.getElementById("contactForm").addEventListener("submit", function(e){
 
-e.preventDefault();
+  e.preventDefault();
 
 let name = document.getElementById("name").value;
 let email = document.getElementById("email").value;
@@ -27,16 +27,46 @@ let message = document.getElementById("message").value;
 
 let msg = document.getElementById("formMessage");
 
+// validation
 if(name === "" || email === "" || message === ""){
-msg.innerHTML = "Please fill in all fields.";
-msg.style.color = "yellow";
-}
-else{
-msg.innerHTML = "Message sent successfully!";
-msg.style.color = "lightgreen";
+    msg.innerHTML = "Please fill in all fields.";
+    msg.style.color = "yellow";
+    return;
 }
 
+// SEND EMAIL TO YOU
+emailjs.send("service_63hus3t", "template_z3toloj", {
+    from_name: name,
+    from_email: email,
+    message: message
+})
+
+// AUTO RESPONSE TO USER
+.then(function() {
+    return emailjs.send("service_63hus3t", "template_3bgrakg", {
+        from_name: name,
+        from_email: email,
+        message: message
+    });
+})
+
+// SUCCESS
+.then(function() {
+    msg.innerHTML = "Message sent successfully!";
+    msg.style.color = "lightgreen";
+
+    // clear form
+    document.getElementById("contactForm").reset();
+})
+
+// ERROR
+.catch(function(error) {
+    msg.innerHTML = "Failed to send message.";
+    msg.style.color = "red";
+    console.log(error);
 });
+  
+
 
 // Back to top button
 let topBtn = document.getElementById("topBtn");
