@@ -66,7 +66,7 @@ emailjs.send("service_63hus3t", "template_z3toloj", {
     console.log(error);
 });
   
-
+});
 
 // Back to top button
 let topBtn = document.getElementById("topBtn");
